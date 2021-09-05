@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
       <%= render "users/info", user: @user %>
@@ -6,7 +6,7 @@
       <%= render "books/form", book_new: @book_new %>
     </div>
     <div class="col-md-8 offset-md-1">
-      <%= render "books/index", books: @books, book: @book %>
+      <%= render "books/index", books: @books %>
     </div>
   </div>
 </div>

@@ -1,0 +1,19 @@
+<h2>Users</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% users.each do |user| %>
+  <tbody>
+    <tr>
+      <td><%= attachment_image_tag user, :profile_image, :full, 50, 50, fallback: "no_image.jpg", size: '50x50' %></td>
+      <td><%= user.name %></td>
+      <td><%= link_to "Show", user_path(user.id) %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
