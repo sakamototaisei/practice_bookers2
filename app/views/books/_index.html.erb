@@ -1,0 +1,24 @@
+<h2>Books</h2>
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% books.each do |book| %>
+  <tbody>
+    <tr>
+      <td>
+        <%= link_to user_path(book.user.id) do %>
+        <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size: '50x50' %>
+        <% end %>
+      </td>
+      <td><%= link_to "#{book.title}", book_path(book.id) %></td>
+      <td><%= book.body %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
