@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
+      <%= form_with model: @user, local: true do |f| %>
+        <label for="Name">Name</label><br>
+        <%= f.text_field :name, class: "form-control" %><br>
+        <label for="Image">Image</label><br>
+        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %><br>
+        <label for="Introduction">Introduction</label><br>
+        <%= f.text_area :introduction, class: "form-control" %><br>
+        <%= f.submit "Update User", class: "btn btn-secondary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
