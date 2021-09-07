@@ -1,5 +1,5 @@
 <% if obj.errors.any? %>
-  <%= obj.errors.count %>件のエラーが発生しました
+  <%= obj.errors.count %>error prohibited this obj from being saved:
   <% obj.errors.full_messages.each do |message| %>
     <%= message %>
   <% end %>
