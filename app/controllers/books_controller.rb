@@ -24,6 +24,8 @@ class BooksController < ApplicationController
     @book_new = Book.new
     @book = Book.find(params[:id])
     @user = @book.user
+    # コメントの記述
+    @book_comment = BookComment.new
   end
 
 
