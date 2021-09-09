@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :book_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  # フォロー機能のためのアソシエーション
+  has_many :relationships, dependent: :destroy
+  has_many :followings, through: :relationships, source: :follower
 
   attachment :profile_image
 
