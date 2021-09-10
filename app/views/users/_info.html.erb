@@ -14,7 +14,14 @@
   </tbody>
 </table>
 <div class="row">
-  <!--<#% if user.id == current_user.id %>-->
+  <% if user.id != current_user.id %>
+    <% if current_user.following?(user) %>
+      <%= button_to  "フォロー解除", user_relationships_path(current_user.relationships.find_by(follower: user)), method: :delete %>
+    <% else %>
+      <%= button_to "フォロー", user_relationships_path(follower: user) %>
+    <% end %>
+  <% end %>
+</div>
+<div class="row">
   <%= link_to "", edit_user_path(user.id), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
-  <!--<#% end %>-->
 </div>
