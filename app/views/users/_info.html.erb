@@ -11,15 +11,15 @@
       <th>introduction</th>
       <th><%= user.introduction %></th>
     </tr>
+    <tr>
+      <th>フォロー<%= link_to user_followings_path(user.id) do %><%= user.followings.count %><% end %></th>
+      <th>フォロワー<%= link_to user_followers_path(user.id) do %><%= user.followers.count %><% end %></th>
+    </tr>
   </tbody>
 </table>
 <% if current_user.id != user.id %>
-<div class="row py-3" id="follow_btn_<%= user.id %>}">
-  <% if current_user.following?(user) %>
-    <%= render 'relationships/unfollow_btn', user: user %>
-  <% else %>
-    <%= render 'relationships/follow_btn', user: user %>
-  <% end %>
+<div class="row py-3">
+  <%= render "relationships/follow-button", user: user %>
 </div>
 <% end %>
 <div class="row">

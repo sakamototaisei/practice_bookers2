@@ -25,14 +25,15 @@ class User < ApplicationRecord
   validates :introduction, length: {maximum: 50}
 
 
+  # ユーザーをフォローする
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
-
+  # ユーザーをアンフォローする
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end
-
+  # フォローしているかを確認する
   def following?(user)
     followings.include?(user)
   end
