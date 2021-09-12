@@ -13,6 +13,13 @@
     <%= render 'layouts/header' %>
   <main>
     <p id="notice"><%= notice %></p>
+    <div class="row">
+      <div class="col">
+        <% if user_signed_in? %>
+          <%= render 'layouts/search' %>
+        <% end %>
+      </div>
+    </div>
     <%= yield %>
   </main>
     <%= render 'layouts/footer' %>
