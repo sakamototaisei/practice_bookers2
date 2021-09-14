@@ -17,6 +17,7 @@
       <div class="col">
         <% if user_signed_in? %>
           <%= render 'layouts/search' %>
+          <%= link_to "グループを作成する", new_group_path %> | <%= link_to "グループ一覧", groups_path %>
         <% end %>
       </div>
     </div>
