@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :book_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :group_users
+  has_many :groups, through: :group_users
 
   # follower=>フォローする人　followed=>フォローされる
   # 自分がフォローされる（被フォロー）側の関係性
