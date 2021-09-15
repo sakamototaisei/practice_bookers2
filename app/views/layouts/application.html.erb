@@ -14,7 +14,7 @@
   <main>
     <p id="notice"><%= notice %></p>
     <div class="row">
-      <div class="col">
+      <div class="col text-center">
         <% if user_signed_in? %>
           <%= render 'layouts/search' %>
           <%= link_to "グループを作成する", new_group_path %> | <%= link_to "グループ一覧", groups_path %>
