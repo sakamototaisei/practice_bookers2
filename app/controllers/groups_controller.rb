@@ -30,6 +30,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
+    @group.users << current_user
     if @group.save
       redirect_to groups_path
     else
@@ -56,6 +57,28 @@ class GroupsController < ApplicationController
     # current_userは、@group.usersから消されるという記述
     @group.users.destroy(current_user)
     redirect_to groups_path
+  end
+
+
+  def all_destroy
+    @group = Group.find(params[:group_id])
+    if @group.destroy
+      redirect_to groups_path
+    end
+  end
+
+  # メールのための記述
+  def new_mail
+    @group = Group.find(params[:group_id])
+  end
+
+
+  def send_mail
+    @group = Group.find(params[:group_id])
+    group_users = @group.users
+    @mail_title = params[:mail_title]
+    @mail_content = params[:mail_content]
+    ContactMailer.send_mail(@mail_title, @mail_content, group_users).deliver
   end
 
 

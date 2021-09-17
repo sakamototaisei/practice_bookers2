@@ -17,6 +17,7 @@
         <li class="nav-item"><%= link_to " About", home_about_path, class: 'nav-link text-light fas fa-link' %></li>
         <li class="nav-item"><%= link_to " sign up", new_user_registration_path, class: 'nav-link text-light fas fa-user-plus' %></li>
         <li class="nav-item"><%= link_to " login", new_user_session_path, class: 'nav-link text-light fas fa-sign-in-alt' %></li>
+        <li class="nav-item"><%= link_to " GuestLogin", users_guest_sign_in_path, method: :post, class: 'nav-link text-light fas fa-sign-in-alt' %></li>
         <% end %>
         </ul>
       </div>

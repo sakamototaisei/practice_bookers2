@@ -23,5 +23,9 @@
 </div>
 <% end %>
 <div class="row">
-  <%= link_to "", edit_user_path(user.id), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
+  <% if user.email == 'guest@example.com'%>
+    <h3 class="btn btn-outline-secondary btn-block">ゲストユーザーは編集できません</h3>
+  <% else %>
+    <%= link_to "", edit_user_path(user.id), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
+  <% end %>
 </div>
