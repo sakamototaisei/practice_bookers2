@@ -56,9 +56,16 @@ class BooksController < ApplicationController
   end
 
 
+  def search_book
+    @book = Book.new
+    @books = Book.search(params[:keyworld])
+    @user = current_user
+  end
+
+
   private
 
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :category)
   end
 end

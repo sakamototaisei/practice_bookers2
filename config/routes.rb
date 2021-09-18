@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'home/about' => 'homes#about'
   get '/search' => 'searches#search'
+  get 'search_book' => 'books#search_book'
+  
   resources :users, only: [:index, :show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'

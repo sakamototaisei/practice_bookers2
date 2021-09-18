@@ -25,4 +25,10 @@ class Book < ApplicationRecord
       Book.where("title LIKE ?", "%" + content + "%")
     end
   end
+  
+  
+  # カテゴリー検索
+  def self.search(search_world)
+    Book.where(['category LIKE ?', "#{search_world}"])
+  end
 end
