@@ -8,6 +8,7 @@
     <div class="col-md-8 offset-md-1">
       <%= render "layouts/errors", obj: @book %>
       <%= render "books/index", books: @books%>
+      <%= paginate @books %>
     </div>
   </div>
 </div>
