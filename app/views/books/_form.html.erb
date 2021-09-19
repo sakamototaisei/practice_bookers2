@@ -2,7 +2,7 @@
   <label>Title</label><br>
   <%= f.text_field :title, class: "form-control" %><br>
   <label>Opinion</label><br>
-  <%= f.text_area :body, class: "form-control" %><br>
+  <%= f.text_area :body, autofocus: true, class: "form-control" %><br>
   <label>Category</label><br>
   <%= f.text_field :category, class: "form-control" %><br>
   <%= f.submit "Create Book", class: "btn btn-success" %>

@@ -6,6 +6,7 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
   validates :body, length: {maximum: 200}
+  validates :category, presence: true
 
   # 引数で渡されたユーザーidがfavoritesテーブル内に存在(exists?)
   # するかを調べる。あればtrue,なければfalseを返す
@@ -25,8 +26,8 @@ class Book < ApplicationRecord
       Book.where("title LIKE ?", "%" + content + "%")
     end
   end
-  
-  
+
+
   # カテゴリー検索
   def self.search(search_world)
     Book.where(['category LIKE ?', "#{search_world}"])
